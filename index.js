@@ -6,17 +6,15 @@ const prefix = '?';
 client.once('ready', () => {
     console.log(`${client.user.tag} is now online!`);
     client.user.setActivity('over your gayness', {type: "WATCHING"});
+
+    setInterval(() => {
+        client.channels.get('846913153064239126').send('If you see this than you are gay as fuckkkk');
+    }, 3600000)
 });
 
-client.on('message', async message => {
-
-    if(message.content.startsWith(`${prefix}yourGay`)) {
-        message.channel.send(`Now sending Gay messages!`);
-        var interval = setInterval(function () {
-            message.channel.send("If you see this you gay as fuck!").catch(console.error);
-            
-        }, 1000 * 60000);
-    }
+client.once('channelDelete', (messageDelete) => {
+    const channel = messageDelete.guild.channels.find(ch => ch.name === '846913153064239126');
+    channel.send(`The message : "${messageDelete.content}" by ${messageDelete.author} was deleted. Their id is ${messageDelete.author.id}`);
 });
 
 
@@ -70,7 +68,4 @@ client.on('message', async message => {
 
 
 
-
-
-
-client.login('ODY5OTY4MzgyMjQ4NzY3NTA4.YQF7MQ.FEff_RE5bEvbSdHmNnIGbCzCNI8');
+client.login(process.env.token);
