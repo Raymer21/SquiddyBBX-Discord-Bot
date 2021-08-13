@@ -20,7 +20,18 @@ client.once('channelDelete', (messageDelete) => {
 
 
 
+client.once('message', async (message) => {
+    if(message.content.startsWith(`${prefix}restartSquiddy`)){
+        resetBot(message.channel);
+    }
 
+})
+
+function resetBot(channel){
+    channel.send('Restarting bot...')
+    .then(message => client.destroy())
+    .then(() => client.login(process.env.token));
+};
 
 
 
