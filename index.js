@@ -5,7 +5,7 @@ const prefix = '?';
 
 client.once('ready', () => {
     console.log(`${client.user.tag} is now online!`);
-    client.user.setActivity('over your gayness', {type: "WATCHING"});
+    client.user.setActivity('over your gay-ness', {type: "WATCHING"});
 
     setInterval(() => {
         client.channels.get('846913153064239126').send('If you see this than you are gay as fuckkkk');
@@ -16,65 +16,6 @@ client.once('channelDelete', (messageDelete) => {
     const channel = messageDelete.guild.channels.find(ch => ch.name === '846913153064239126');
     channel.send(`The message : "${messageDelete.content}" by ${messageDelete.author} was deleted. Their id is ${messageDelete.author.id}`);
 });
-
-
-
-
-client.once('message', async (message) => {
-    if(message.content.startsWith(`${prefix}restartSquiddy`)){
-        resetBot(message.channel);
-    }
-
-})
-
-function resetBot(channel){
-    channel.send('Restarting bot...')
-    .then(message => client.destroy())
-    .then(() => client.login(process.env.token));
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
