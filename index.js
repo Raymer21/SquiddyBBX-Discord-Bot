@@ -5,7 +5,7 @@ const prefix = '?';
 
 client.once('ready', () => {
     console.log(`${client.user.tag} is now online!`);
-    client.user.setActivity('over your gay-ness', {type: "WATCHING"});
+    client.user.setActivity('over your gayness', {type: "WATCHING"});
 });
 
 client.once('channelDelete', (messageDelete) => {
@@ -13,13 +13,11 @@ client.once('channelDelete', (messageDelete) => {
     channel.send(`The message : "${messageDelete.content}" by ${messageDelete.author} was deleted. Their id is ${messageDelete.author.id}`);
 });
 
-client.once('message', async (message) => {
-    if(message.content.startsWith(`${prefix}yourGay`){
-       setInterval(() => {
-            message.channel.send("if you see this, `Nigga` you gay as shit"); 
-       }, 3600000)
-    }
-}
+client.once('message', async message => {
+    setInterval(() => {
+        client.channels.get('846913153064239126').send('If you see this than you are gay as fuckkkk');
+    }, 3600000)
+})
 
 
 
